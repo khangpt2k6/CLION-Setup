@@ -60,14 +60,6 @@ apt-get update && apt-get install -y gdb
 4. Ensure your newly created Docker toolchain is selected
 5. Click **Create**
 
-## Step 7: Working with the ROS Workspace
-
-After setting up your project, you can:
-
-1. Run `catkin_make` directly from CLion's terminal to build your ROS packages
-2. Edit, build, and debug your ROS code directly in CLion
-3. Execute ROS commands within the Docker container
-
 ## Step 8: Accessing Container Files in CLion
 
 1. Open the Services tool window by:
