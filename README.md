@@ -59,11 +59,13 @@ docker images | grep ros-melodic
 2. Click the **+** button and select **Docker**
 3. Enter a name for your Docker toolchain (e.g., "ROS Melodic Docker")
 4. In the Docker dropdown, select the appropriate Docker connection
-5. For the Docker image, select your `ros-melodic` image
+5. For the Docker image, select your image
 
 ## Step 4: Configure Container Settings
 
 1. Click the gear icon next to the Docker image selection
+   ![image](https://github.com/user-attachments/assets/9fe95719-1824-4359-a997-aaa1fbeb1d38)
+
 2. Configure container settings:
    - **Container name**: Provide a name for your container (e.g., `ros-melodic-container`)
    - **Run options**: Add necessary Docker run options, such as:
@@ -84,7 +86,8 @@ docker images | grep ros-melodic
 2. CLion should automatically detect the versions of all tools from the Docker container
 
 3. Click **Apply** → **OK** to save the configuration
-
+   
+![image](https://github.com/user-attachments/assets/6dcb88ab-5dd2-484c-850e-01077fd3c923)
 ## Step 6: Set Up a CMake Project
 
 1. In CLion, go to **File** → **New Project**
@@ -101,28 +104,15 @@ After setting up your project, you can:
 2. Edit, build, and debug your ROS code directly in CLion
 3. Execute ROS commands within the Docker container
 
-## Accessing the Docker Container Directly (Optional)
+## Step 8: Accessing Container Files in CLion
 
-If needed, you can access the Docker container directly using:
+1. Open the Services tool window by:
+- Pressing Alt+\ to open the Main Menu, then select View → Tool Windows → Services
+- Or use the shortcut Alt+8 (Windows/Linux) or ⌘8 (macOS)
 
-```bash
-docker exec -it ros-melodic-container bash
-```
+2. In the Services panel, expand the Docker section
+3. Navigate to the Containers list and find your ROS Melodic container
+4. Right-click on your container (in this case "ros-melodic-container") and select Browse Files
+5. CLion will open a file browser showing the complete file system of your Docker container
 
-This allows you to run commands like `catkin_make`, `roscore`, etc., directly in the container.
 
-## Troubleshooting
-
-- If you encounter GDB debugging issues, verify that GDB is properly installed in your Docker image
-- For connection issues, ensure Docker daemon is running and properly configured
-- For file permission problems, check your Docker volume mapping configurations
-
-## Additional Resources
-
-- [CLion Docker Documentation](https://www.jetbrains.com/help/clion/docker.html)
-- [ROS Melodic Documentation](http://wiki.ros.org/melodic)
-- [Docker Documentation](https://docs.docker.com/)
-
----
-
-This setup ensures a consistent development environment across different machines and simplifies the process of ROS development with CLion's powerful IDE features.
