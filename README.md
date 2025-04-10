@@ -1,6 +1,4 @@
-# CLion_Setup
-
-# Setting Up CLion with Docker for ROS Melodic Development
+# CLion Setting for Docker on multiple platforms
 
 This guide provides step-by-step instructions for setting up JetBrains CLion with Docker for ROS Melodic development environments, enabling consistent build environments and simplified deployment.
 
