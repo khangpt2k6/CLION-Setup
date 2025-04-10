@@ -8,50 +8,15 @@ This guide provides step-by-step instructions for setting up JetBrains CLion wit
 - [Docker](https://docs.docker.com/get-docker/) installed and running
 - Basic familiarity with ROS and Docker concepts
 
-## Step 1: Create a Dockerfile
+## Step 1: Required Package
 
-Create a file named `Dockerfile` in your project directory with the following content:
-
-```dockerfile
-FROM ros:melodic
-
-# Install required tools for development and debugging
-RUN apt-get update && apt-get install -y \
-    cmake \
-    gdb \
-    git \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set up the workspace directory
-WORKDIR /root
-RUN mkdir .ssh
-RUN mkdir -p ~/catkin_ws/src
-
-# Set working directory to the catkin workspace
-WORKDIR /root/catkin_ws
-
-# Add ROS environment setup to bashrc
-RUN echo "source /opt/ros/melodic/setup.bash" >> /root/.bashrc
-
-# Default command
-CMD ["bash"]
-```
-
-## Step 2: Build the Docker Image
-
-Build your Docker image by running the following command in the terminal from the directory containing your Dockerfile:
+Add this command to your Dockerfile or Docker container
 
 ```bash
-docker buildx build --no-cache --tag=ros-melodic .
+apt-get update && apt-get install -y gdb
 ```
 
-Verify the image was created successfully:
-
-```bash
-docker images | grep ros-melodic
-```
-
-## Step 3: Configure CLion to Use Docker
+## Step 2: Configure CLion to Use Docker
 
 1. Open CLion and navigate to **Settings | Build, Execution, Deployment | Toolchains**
 2. Click the **+** button and select **Docker**
@@ -59,7 +24,7 @@ docker images | grep ros-melodic
 4. In the Docker dropdown, select the appropriate Docker connection
 5. For the Docker image, select your image
 
-## Step 4: Configure Container Settings
+## Step 3: Configure Container Settings
 
 1. Click the gear icon next to the Docker image selection
    ![image](https://github.com/user-attachments/assets/9fe95719-1824-4359-a997-aaa1fbeb1d38)
