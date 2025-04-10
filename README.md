@@ -50,7 +50,8 @@ apt-get update && apt-get install -y gdb
 
 3. Click **Apply** → **OK** to save the configuration
    
-![image](https://github.com/user-attachments/assets/6dcb88ab-5dd2-484c-850e-01077fd3c923)
+![image](https://github.com/user-attachments/assets/808e8f1a-d8a3-4341-bc42-895d530df509)
+
 ## Step 6: Set Up a CMake Project
 
 1. In CLion, go to **File** → **New Project**
