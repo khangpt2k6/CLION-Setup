@@ -60,6 +60,19 @@ apt-get update && apt-get install -y gdb
 4. Ensure your newly created Docker toolchain is selected
 5. Click **Create**
 
+## Step 7: Mounting Volumes for Code Editing
+Because files in the Docker container are read-only in CLion, you must mount a volume to edit code:
+
+Stop any existing container:
+```docker stop ros-melodic-container```
+
+Remove the stopped container:
+```docker rm ros-melodic-container```
+
+Create a new container with volume mounting:
+```docker run -it --name ros-melodic-container -v "/path/to/local/directory:/root/catkin_ws" --workdir /root/catkin_ws ros:melodic-robot bash```
+Replace ```/path/to/local/directory``` with your actual local development directory path.
+
 ## Step 8: Accessing Container Files in CLion
 
 1. Open the Services tool window by:
@@ -69,6 +82,6 @@ apt-get update && apt-get install -y gdb
 2. In the Services panel, expand the Docker section
 3. Navigate to the Containers list and find your ROS Melodic container
 4. Right-click on your container (in this case "ros-melodic-container") and select Browse Files
-5. CLion will open a file browser showing the complete file system of your Docker container
+
 
 
