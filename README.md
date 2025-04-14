@@ -63,13 +63,13 @@ apt-get update && apt-get install -y gdb
 ## Step 7: Mounting Volumes for Code Editing
 Because files in the Docker container are read-only in CLion, you must mount a volume to edit code:
 
-Stop any existing container:
+1. Stop any existing container:
 ```docker stop ros-melodic-container```
 
-Remove the stopped container:
+2. Remove the stopped container:
 ```docker rm ros-melodic-container```
 
-Create a new container with volume mounting:
+3. Create a new container with volume mounting:
 ```docker run -it --name ros-melodic-container -v "/path/to/local/directory:/root/catkin_ws" --workdir /root/catkin_ws ros:melodic-robot bash```
 Replace ```/path/to/local/directory``` with your actual local development directory path.
 
